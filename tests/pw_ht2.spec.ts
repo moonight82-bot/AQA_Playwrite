@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("TC1: Verify that the user can be registered with valid data", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
 
@@ -33,7 +33,7 @@ test("TC1: Verify that the user can be registered with valid data", async ({
 test("TC2: Verify that the user cannot be registered with empty fields", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
   const dialog = page.getByRole("dialog");
@@ -75,7 +75,7 @@ test("TC2: Verify that the user cannot be registered with empty fields", async (
 test("TC3: Verify that the user cannot be registered with wrong data name format, epmty email and re-password", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
   const dialog = page.getByRole("dialog");
@@ -119,7 +119,7 @@ test("TC3: Verify that the user cannot be registered with wrong data name format
 test("TC4: Verify that the user cannot be registered with wrong name length, email border is red", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
   const dialog = page.getByRole("dialog");
@@ -155,7 +155,7 @@ test("TC4: Verify that the user cannot be registered with wrong name length, ema
 test("TC5: Verify that the user cannot be registered with wrong re-password", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
   const dialog = page.getByRole("dialog");
@@ -188,7 +188,7 @@ test("TC5: Verify that the user cannot be registered with wrong re-password", as
 test("TC6: Verify that the user cannot be registered with wrong password format", async ({
   page,
 }) => {
-  await page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+  await page.goto("/");
 
   await page.getByRole("button", { name: "Sign up" }).click();
   const dialog = page.getByRole("dialog");
