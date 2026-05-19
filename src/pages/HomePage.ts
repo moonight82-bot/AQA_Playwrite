@@ -9,7 +9,7 @@ export class HomePage {
   }
 
   async open(): Promise<void> {
-    await this.page.goto("https://guest:welcome2qauto@qauto.forstudy.space/");
+    await this.page.goto("/");
   }
 
   async openRegistrationModal(): Promise<void> {
