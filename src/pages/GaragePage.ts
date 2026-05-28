@@ -1,12 +1,18 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class GaragePage {
-  constructor(private readonly page: Page) {}
+  readonly addCarButton: Locator;
+
+  constructor(readonly page: Page) {
+    this.addCarButton = this.page.getByRole("button", { name: "Add car" });
+  }
+
+  async open(): Promise<void> {
+    await this.page.goto("/panel/garage");
+  }
 
   async expectOpened(): Promise<void> {
-    await expect(this.page).toHaveURL(/garage/);
-    await expect(
-      this.page.getByRole("heading", { name: "Garage" }),
-    ).toBeVisible();
+    await expect(this.page).toHaveURL(/panel\/garage/);
+    await expect(this.addCarButton).toBeVisible();
   }
 }
