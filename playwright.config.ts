@@ -25,8 +25,10 @@ export default defineConfig({
   projects: [
     {
       name: "setup",
+      testDir: "./tests/setup",
       testMatch: /auth\.setup\.ts/,
     },
+
     {
       name: "chromium",
       use: {
@@ -35,5 +37,16 @@ export default defineConfig({
       },
       dependencies: ["setup"],
     },
-  ],
+
+    {
+      name: "api",
+      testDir: "./tests/api",
+      testMatch: /.*\.spec\.ts/,
+      dependencies: ["setup"],
+      use: {
+        storageState: ".auth/api-user.json",
+      },
+    },
+
+     ],
 });
