@@ -15,4 +15,13 @@ export class GaragePage {
     await expect(this.page).toHaveURL(/panel\/garage/);
     await expect(this.addCarButton).toBeVisible();
   }
+
+  async openAddCarModal(): Promise<void> {
+    await this.addCarButton.click();
+  }
+
+  async expectAddCarModalOpened(): Promise<void> {
+    await expect(this.page.getByRole("dialog")).toBeVisible();
+    await expect(this.page.getByText("Add a car")).toBeVisible();
+  }
 }

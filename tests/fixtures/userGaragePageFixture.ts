@@ -6,19 +6,12 @@ type Fixtures = {
 };
 
 export const test = base.extend<Fixtures>({
-  userGaragePage: async ({ browser }, use) => {
-    const context = await browser.newContext({
-      storageState: ".auth/user.json",
-    });
-
-    const page = await context.newPage();
+  userGaragePage: async ({ page }, use) => {
     const userGaragePage = new GaragePage(page);
 
     await userGaragePage.open();
 
     await use(userGaragePage);
-
-    await context.close();
   },
 });
 
