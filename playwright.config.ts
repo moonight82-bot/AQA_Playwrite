@@ -23,30 +23,22 @@ export default defineConfig({
   },
 
   projects: [
-    {
-      name: "setup",
-      testDir: "./tests/setup",
-      testMatch: /auth\.setup\.ts/,
-    },
+  {
+    name: "setup",
+    testDir: "./tests/setup",
+    testMatch: /auth\.setup\.ts/,
+  },
 
-    {
-      name: "chromium",
-      use: {
-        ...devices["Desktop Chrome"],
-        storageState: ".auth/user.json",
-      },
-      dependencies: ["setup"],
+  {
+    name: "api",
+    testDir: "./tests/api",
+    testMatch: /.*\.spec\.ts/,
+    use: {
+      baseURL: process.env.BASE_URL,
+      storageState: ".auth/user.json",
     },
+    dependencies: ["setup"],
+  },
+]
 
-    {
-      name: "api",
-      testDir: "./tests/api",
-      testMatch: /.*\.spec\.ts/,
-      dependencies: ["setup"],
-      use: {
-        storageState: ".auth/api-user.json",
-      },
-    },
-
-     ],
 });

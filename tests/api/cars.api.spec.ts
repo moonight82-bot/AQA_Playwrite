@@ -15,10 +15,16 @@ test.describe("QAuto API - Cars", () => {
     const body = await response.json();
 
     expect(body.status).toBe("ok");
-    expect(body.data).toHaveProperty("id");
+    expect(body.data.id).toBeDefined();
     expect(body.data.carBrandId).toBe(1);
     expect(body.data.carModelId).toBe(1);
     expect(body.data.mileage).toBe(100);
+
+    const carId = body.data.id;
+
+    const deleteResponse = await request.delete(`/api/cars/${carId}`);
+
+    expect(deleteResponse.status()).toBe(200);
   });
 
   test("TC2: should not create a car without mileage", async ({ request }) => {
@@ -53,5 +59,4 @@ test.describe("QAuto API - Cars", () => {
 
     expect(body.status).toBe("error");
   });
-  
 });

@@ -17,4 +17,5 @@ test("UI should display fake profile", async ({ page }) => {
   await page.goto("/panel/profile");
 
   await expect(page.getByText("Anna Mocked")).toBeVisible();
+  await page.pause();
 });
