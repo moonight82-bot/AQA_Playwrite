@@ -1,0 +1,15 @@
+{
+  "cookies": [
+    {
+      "name": "sid",
+      "value": "s%3AVBFAzyXjt-KJcm8e6x8QSaY67kR0bwbc.FfM%2F%2F0nwJEdpCoBZLCvOR2YSw1PmuYupEFj5OxaYcaI",
+      "domain": ".forstudy.space",
+      "path": "/",
+      "expires": 1780764533,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
