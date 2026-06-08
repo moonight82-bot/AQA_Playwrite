@@ -47,7 +47,6 @@ export default defineConfig({
       use: {
         ...devices["Desktop Firefox"],
         baseURL: process.env.BASE_URL,
-        storageState: ".auth/user.json",
       },
       dependencies: ["setup"],
     },

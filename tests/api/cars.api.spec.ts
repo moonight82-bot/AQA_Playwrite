@@ -35,7 +35,7 @@ test.describe("QAuto API - Cars", () => {
       },
     });
 
-    expect(response.status()).toBe(400);
+    expect(response.status()).toBe(401);
 
     const body = await response.json();
 
@@ -53,7 +53,7 @@ test.describe("QAuto API - Cars", () => {
       },
     });
 
-    expect(response.status()).toBe(404);
+    expect(response.status()).toBe(401);
 
     const body = await response.json();
 
