@@ -39,6 +39,18 @@ export default defineConfig({
     },
     dependencies: ["setup"],
   },
-]
+
+  {
+    name: "firefox",
+    testDir: "./tests",
+    testMatch: /.*\.spec\.ts/,
+    use: {
+      ...devices["Desktop Firefox"],
+      baseURL: process.env.BASE_URL,
+      storageState: ".auth/user.json",
+    },
+    dependencies: ["setup"],
+  },
+],
 
 });
