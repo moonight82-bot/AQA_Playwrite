@@ -12,7 +12,7 @@ export default defineConfig({
   reporter: "html",
 
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space',
 
     httpCredentials: {
       username: process.env.HTTP_USERNAME || "",
