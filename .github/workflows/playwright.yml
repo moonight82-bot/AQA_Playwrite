@@ -2,9 +2,9 @@ name: Playwright Tests in Docker
 
 on:
   push:
-    branches: [main, Playwright_1br]
+    branches: [main, Playwrite_1br]
   pull_request:
-    branches: [main, Playwright_1br]
+    branches: [main, Playwrite_1br]
   workflow_dispatch:
 
 jobs:
