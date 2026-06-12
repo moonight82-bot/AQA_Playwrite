@@ -9,6 +9,9 @@ test("login via API and save auth state", async ({ request }) => {
     },
   });
 
+  console.log("Login status:", response.status());
+  console.log("Login body:", await response.text());
+  
   expect(response.status()).toBe(200);
 
   await request.storageState({ path: ".auth/user.json" });

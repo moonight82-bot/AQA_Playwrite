@@ -8,4 +8,4 @@ RUN npm ci
 
 COPY . .
 
-CMD ["npx", "playwright", "test", "tests/api", "--project=api"]
+CMD ["npx", "playwright", "test", "--project=api", "--project=docker-smoke"]

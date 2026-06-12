@@ -51,5 +51,25 @@ export default defineConfig({
       testIgnore: /api\/.*\.spec\.ts/,
       dependencies: ["setup"],
     },
+
+    {
+      name: "docker-smoke",
+      testDir: "./tests/docker-smoke",
+      testMatch: /.*\.spec\.ts/,
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: process.env.BASE_URL,
+
+        httpCredentials: {
+          username: process.env.HTTP_USERNAME || "",
+          password: process.env.HTTP_PASSWORD || "",
+        },
+
+        storageState: {
+          cookies: [],
+          origins: [],
+        },
+      },
+    },
   ],
 });
