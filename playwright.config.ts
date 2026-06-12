@@ -12,7 +12,7 @@ export default defineConfig({
   reporter: "html",
 
   use: {
-    baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space',
+    baseURL: process.env.BASE_URL || "https://qauto.forstudy.space",
 
     httpCredentials: {
       username: process.env.HTTP_USERNAME || "",
@@ -48,6 +48,7 @@ export default defineConfig({
         ...devices["Desktop Firefox"],
         baseURL: process.env.BASE_URL,
       },
+      testIgnore: /api\/.*\.spec\.ts/,
       dependencies: ["setup"],
     },
   ],
