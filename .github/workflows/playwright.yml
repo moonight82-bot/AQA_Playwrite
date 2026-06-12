@@ -11,6 +11,10 @@ jobs:
   playwright-tests:
     runs-on: ubuntu-latest
 
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
+      options: --init --ipc=host
+
     env:
       BASE_URL: ${{ secrets.BASE_URL }}
       USER_EMAIL: ${{ secrets.USER_EMAIL }}
@@ -35,6 +39,13 @@ jobs:
             -e HTTP_PASSWORD="${HTTP_PASSWORD}" \
             -v "${{ github.workspace }}/playwright-report:/app/playwright-report" \
             my2-playwright-tests
+      
+      - name: Show files after tests
+        if: always()
+        run: |
+          pwd
+          ls -la
+          ls -la playwright-report || true
 
       - name: Upload Playwright HTML report
         if: always()
